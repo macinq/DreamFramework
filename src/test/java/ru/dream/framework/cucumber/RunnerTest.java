@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         glue = "ru.dream.framework",
         features = "src/test/resources/features",
-        tags = "@Feature"
+        tags = "@test"
 )
 public class RunnerTest extends AbstractTestNGCucumberTests {
 }

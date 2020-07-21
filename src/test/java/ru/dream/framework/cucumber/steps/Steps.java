@@ -64,9 +64,9 @@ public class Steps {
         System.out.println("Кнопка входа присутствует");
     }
 
-    @After
-    public void clearDrivers(){
-        driverChrome.quit();
-        driverFirefox.quit();
-    }
+//    @After
+//    public void clearDrivers(){
+//        driverChrome.quit();
+//        driverFirefox.quit();
+//    }
 }
