@@ -15,13 +15,17 @@ import static io.restassured.RestAssured.given;
 
 
 public class ChangeRecordTest {
+    /*
+    номер поста
+     */
+    int post = 3;
     @BeforeClass
     public static void prepare() throws IOException {
-        System.getProperties().load(ClassLoader.getSystemResourceAsStream("src\\test\\java\\my.properties"));
+        System.getProperties().load(ClassLoader.getSystemResourceAsStream("my.properties"));
         RestAssured.requestSpecification = new RequestSpecBuilder()
-                .setBaseUri("https://misago.rnd.lanit.ru:58443/api/threads/")
-                .addHeader("Cookie", System.getProperty("cookie"))
-                .addHeader("X-CSRFToken", System.getProperty("Token"))
+                .setBaseUri(System.getProperty("Site"))
+                .addCookie(System.getProperty("Cookie"))
+                .addHeader("X-CSRFToken", System.getProperty("TOKEN"))
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
                 .log(LogDetail.ALL)
@@ -37,7 +41,7 @@ public class ChangeRecordTest {
         given()
                 .body(changeTitle)
                 .when()
-                .patch("/3")
+                .patch("/" + post)
                 .then()
                 .statusCode(200);
     }

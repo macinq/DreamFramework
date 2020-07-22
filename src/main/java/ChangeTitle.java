@@ -67,8 +67,10 @@ public class ChangeTitle {
 
     @Override
     public String toString()    {
-        return "[{\"op\":\"replace\",\n" +
-                "\"path\":\"title\",\n" +
-                "\"value\":\"Проверка без fafssafasfделал я \"}]";
+        return "[{" +
+                "op = '" + op + '\'' +
+                ",path = '" + path + '\'' +
+                ",value = '" + value + '\'' +
+                "}]";
     }
 }
