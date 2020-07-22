@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ChangeTitle {
 
-
     /**
      * Описывает тело заголовка(*если нужно*)
      */
@@ -64,5 +63,12 @@ public class ChangeTitle {
 
     public String getValue() {
         return value;
+    }
+
+    @Override
+    public String toString()    {
+        return "[{\"op\":\"replace\",\n" +
+                "\"path\":\"title\",\n" +
+                "\"value\":\"Проверка без fafssafasfделал я \"}]";
     }
 }
