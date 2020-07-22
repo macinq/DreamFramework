@@ -4,7 +4,6 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.ru.Дано;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -20,7 +19,7 @@ public class Steps {
     @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
     public void initChrome(String pathDriver){
 
-        System.setProperty("webdriver.chrome.driver",pathDriver);
+        System.setProperty("webdriver.chrome.driver", pathDriver);
         driverChrome = new ChromeDriver();
         System.out.println("Двайвер Chrome установлен");
     }
@@ -64,9 +63,9 @@ public class Steps {
         System.out.println("Кнопка входа присутствует");
     }
 
-//    @After
-//    public void clearDrivers(){
-//        driverChrome.quit();
-//        driverFirefox.quit();
-//    }
+    @After
+    public void clearDrivers(){
+        driverChrome.quit();
+        driverFirefox.quit();
+    }
 }
