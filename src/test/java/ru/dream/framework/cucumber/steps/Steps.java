@@ -1,10 +1,10 @@
 package ru.dream.framework.cucumber.steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.ru.Дано;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
@@ -14,8 +14,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Steps {
 
+
     WebDriver driverChrome;
     WebDriver driverFirefox;
+
 
     @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
     public void initChrome(String pathDriver){
@@ -64,9 +66,9 @@ public class Steps {
         System.out.println("Кнопка входа присутствует");
     }
 
-//    @After
-//    public void clearDrivers(){
-//        driverChrome.quit();
-//        driverFirefox.quit();
-//    }
+    @After
+    public void clearDrivers(){
+        driverChrome.quit();
+        driverFirefox.quit();
+    }
 }
