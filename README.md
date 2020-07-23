@@ -11,4 +11,4 @@
 * [***Allure***](http://allure.qatools.ru/)
 * [***Maven***](https://maven.apache.org/)
 
-И методологии **ScrumBan**
+И методологии **ScrumBan** 
