@@ -1,6 +1,7 @@
-package cucumber;
+package ru.dream.framework.cucumber.steps;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,13 +14,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Steps {
 
+
     WebDriver driverChrome;
     WebDriver driverFirefox;
+
 
     @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
     public void initChrome(String pathDriver){
 
-        System.setProperty("webdriver.chrome.driver",pathDriver);
+        System.setProperty("webdriver.chrome.driver", pathDriver);
         driverChrome = new ChromeDriver();
         System.out.println("Двайвер Chrome установлен");
     }
