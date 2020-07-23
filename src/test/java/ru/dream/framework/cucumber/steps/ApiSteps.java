@@ -1,11 +1,16 @@
 package ru.dream.framework.cucumber.steps;
 
 import io.cucumber.java.ru.Дано;
-import ru.dream.framework.api.Request;
+import io.cucumber.java.ru.Затем;
+
+import static io.restassured.RestAssured.given;
 
 public class ApiSteps {
-    @Дано("отпрака запроса по эндпоиту {string}")
-    public void getRequest(String arg) {
-        Request request = new Request(arg);
+    @Дано("отправка запроса по эндпоиту {string} ожидаемый ответ {int}")
+    public void getRequest(String arg, int code) {
+        given()
+                .get(arg)
+                .then()
+                .statusCode(code);
     }
 }

@@ -4,16 +4,15 @@
 Функционал: Отправка Api запроса без авторизации
 
   Структура сценария: Отправим запрос по эндпоинту <endpoint>
-    Дано отпрака запроса по эндпоиту <endpoint>
-    Затем запрос удачно обработан
+    Дано отправка запроса по эндпоиту <endpoint> ожидаемый ответ <statuscode>
     Примеры:
-    |endpoint                 |
-    |/{id}/posts/reply_editor/|
-    |/{id}/merge/             |
-    |/{id}/poll/              |
-    |/{id}/posts/             |
-    |/{id}/posts/merge/       |
-    |/{id}/posts/move/        |
-    |/{id}/posts/split/       |
+    |endpoint                | statuscode |
+    |"/5/posts/reply_editor/"|    403     |
+    |"/5/merge/"             |    405     |
+    |"/5/poll/"              |    405     |
+    |"/5/posts/"             |    200     |
+    |"/5/posts/merge/"       |    405     |
+    |"/5/posts/move/"        |    405     |
+    |"/5/posts/split/"       |    405     |
 
 

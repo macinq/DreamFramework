@@ -71,5 +71,4 @@ public class Steps {
         driverChrome.quit();
         driverFirefox.quit();
     }
-
 }
