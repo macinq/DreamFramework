@@ -31,7 +31,7 @@ public class ApiSteps {
         } catch (IOException e) {
             //Logger
         }
-        URL = System.getProperty("url") + System.getProperty("api.prefix");
+        URL = System.getProperty("client.url") + System.getProperty("api.prefix");
         
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(URL)
