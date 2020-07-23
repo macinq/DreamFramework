@@ -22,7 +22,7 @@ public class Steps {
     @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
     public void initChrome(String pathDriver){
 
-        System.setProperty("webdriver.chrome.driver",pathDriver);
+        System.setProperty("webdriver.chrome.driver", pathDriver);
         driverChrome = new ChromeDriver();
         System.out.println("Двайвер Chrome установлен");
     }
