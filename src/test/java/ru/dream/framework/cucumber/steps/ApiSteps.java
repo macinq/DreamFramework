@@ -1,7 +1,6 @@
 package ru.dream.framework.cucumber.steps;
 
 
-import io.cucumber.java.ParameterType;
 import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Затем;
 import io.restassured.RestAssured;
@@ -11,7 +10,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.Assert;
-import ru.dream.framework.cucumber.types.Methods;
 
 import java.io.IOException;
 
@@ -43,36 +41,31 @@ public class ApiSteps {
         RestAssured.filters(new ResponseLoggingFilter());
     }
 
-    @ParameterType("(.*)")
-    public Methods method(String name) {
-        return Methods.valueOf(name);
-    }
-
     /**
      * Отправка запроса.
      * @param endpoint - эндпоинт для реквеста.
      * @param method - Http метод.
      */
-    @Дано("отправка запроса по эндпоиту {string} с использованием метода {method}")
-    public void request(String endpoint, Methods method) {
+    @Дано("отправка запроса по эндпоиту {string} с использованием метода {string}")
+    public void request(String endpoint, String method) {
         switch (method) {
-            case POST : response = given()
+            case "POST" : response = given()
                     .when()
                     .post(endpoint);
                     break;
-            case PUT : response = given()
+            case "PUT" : response = given()
                     .when()
                     .put(endpoint);
                     break;
-            case PATCH : response = given()
+            case "PATCH" : response = given()
                     .when()
                     .patch(endpoint);
                     break;
-            case DELETE : response = given()
+            case "DELETE" : response = given()
                     .when()
                     .delete(endpoint);
                     break;
-            case GET :  response = given()
+            case "GET" :  response = given()
                     .when()
                     .get(endpoint);
                     break;
