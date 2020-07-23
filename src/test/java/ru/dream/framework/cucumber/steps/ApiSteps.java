@@ -32,7 +32,7 @@ public class ApiSteps {
             //Logger
         }
         URL = System.getProperty("url") + System.getProperty("api.prefix");
-
+        
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(URL)
                 .setAccept(ContentType.JSON)
@@ -54,7 +54,7 @@ public class ApiSteps {
      * @param method - Http метод.
      */
     @Дано("отправка запроса по эндпоиту {string} с использованием метода {method}")
-    public void validateResponse(String endpoint, Methods method) {
+    public void request(String endpoint, Methods method) {
         switch (method) {
             case POST : response = given()
                     .when()
