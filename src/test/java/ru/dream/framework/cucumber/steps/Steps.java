@@ -44,9 +44,9 @@ public class Steps {
         driverChrome.get(url);
         driverFirefox.get(url);
         screenshot = new Screenshot(driverChrome);
-        System.out.println("Страница: " + url + " успешно открыта");
-        screenshot.makeScreenshotToAllure("HomePage");
-        logger.info("Страница: " + url + " успешно открыта.");
+        screenshot.makeScreenshotToAllure("Home");
+        System.out.println("Страница: "+url+" успешно открыта");
+        logger.info("Страница: "+url+" успешно открыта.");
     }
 
 

@@ -1,6 +1,7 @@
 package ru.dream.framework.cucumber;
 
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
+import com.sun.deploy.cache.Cache;
+import com.sun.xml.messaging.saaj.util.ByteInputStream;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
@@ -12,8 +13,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-
-import static com.sun.deploy.cache.Cache.copyFile;
 
 /**
  * Для создания скриншота, необходимо у объекта класса
@@ -32,7 +31,7 @@ public class Screenshot {
 
     private void getScreenshot(String name) throws IOException {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        copyFile(scrFile, new File("target\\"+name+".png"));
+        Cache.copyFile(scrFile, new File("target\\"+name+".png"));
     }
 
 
