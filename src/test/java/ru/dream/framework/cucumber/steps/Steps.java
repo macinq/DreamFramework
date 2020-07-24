@@ -15,8 +15,8 @@ import ru.dream.framework.cucumber.Screenshot;
 import java.io.IOException;
 
 
-public class SearchElementsSteps {
-    public static final Logger logger = Logger.getLogger(SearchElementsSteps.class);
+public class Steps {
+    public static final Logger logger = Logger.getLogger(Steps.class);
 
     WebDriver driverChrome;
     WebDriver driverFirefox;
