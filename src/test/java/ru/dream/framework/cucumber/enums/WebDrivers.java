@@ -1,8 +1,8 @@
 package ru.dream.framework.cucumber.enums;
 
 public enum WebDrivers {
-  CHROME("webdriver.chrome.driver", "C:\\webdriver\\chromedriver.exe", "google-chrome"),
-  FIREFOX("webdriver.gecko.driver", "C:\\webdriver\\geckodriver.exe", "mozilla-firefox");
+  CHROME("webdriver.chrome.driver", "target/classes/chromedriver.exe", "google-chrome"),
+  FIREFOX("webdriver.gecko.driver", "target/classes/geckodriver.exe", "mozilla-firefox");
 
   public String type;
   public String path;
@@ -23,6 +23,6 @@ public enum WebDrivers {
   }
 
   public String getName() {
-    return path;
+    return name;
   }
 }
