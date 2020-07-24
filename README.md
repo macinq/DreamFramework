@@ -14,3 +14,9 @@
 И сформировать запрос типа patch
 
 Должен быть ответ "200"
+## Проверка Логина
+EmailAuthorizationFailedPasswordSteps - Проверка на некоректность данных(Вход не выполнен)
+
+EmailАuthorizationSuccessSteps - Проверка на авторизацию через почту(Вход выполнен)
+
+LoginАuthorizationSuccessSteps - Проверка на авторизацию через логин(Вход выполнен)
