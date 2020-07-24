@@ -14,9 +14,9 @@
     Тогда В правом верхнем углу появляется кнопка-меню с изображением автара пользователя.
 
     Примеры:
-      | имя_браузера      | логин           | пароль        |
-      | 'google-chrome'   | 'Test190720_g1' | 'Test$190720' |
-      | 'mozilla-firefox' | 'Test190720_f1' | 'Test$190720' |
+      | имя_браузера      | логин        | пароль        |
+      | 'google-chrome'   | 'test546300' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'test546500' | 'qawsderfgt1' |
 
   Структура сценария: Успешный вход на веб-сайте через e-mail
     Дано Открыт браузер <имя_браузера>
@@ -30,8 +30,8 @@
 
     Примеры:
       | имя_браузера      | e-mail                  | пароль        |
-      | 'google-chrome'   | 'test190720_g1@test.ru' | 'Test$190720' |
-      | 'mozilla-firefox' | 'test190720_f1@test.ru' | 'Test$190720' |
+      | 'google-chrome'   | 'test@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'test@test.ru  ' | 'qawsderfgt1' |
 
 
   Структура сценария: Провальный вход на веб-сайт с использованием браузера Google Chrome. Неверный пароль
@@ -44,8 +44,8 @@
     Тогда Появляется сообщение 'Логин или пароль неправильны.'
     Примеры:
       | имя_браузера      | e-mail                  | пароль           |
-      | 'google-chrome'   | 'test190720_g1@test.ru' | 'wrong_password' |
-      | 'mozilla-firefox' | 'test190720_f1@test.ru' | 'wrong_password' |
+      | 'google-chrome'   | 'test@test.ru' | 'wrong_password' |
+      | 'mozilla-firefox' | 'test@test.ru' | 'wrong_password' |
 
   Структура сценария: Провальный вход на веб-сайт. Неверный логин
     Дано Открыт браузер <имя_браузера>
@@ -58,8 +58,8 @@
 
     Примеры:
       | имя_браузера      | логин         | пароль        |
-      | 'google-chrome'   | 'wrong_login' | 'Test$190720' |
-      | 'mozilla-firefox' | 'wrong_login' | 'Test$190720' |
+      | 'google-chrome'   | 'wrong_login' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'wrong_login' | 'qawsderfgt1' |
 
   Структура сценария: Провальный вход на веб-сайт. Не заполнено первое поле логин
     Дано Открыт браузер <имя_браузера>
@@ -72,8 +72,8 @@
 
     Примеры:
       | имя_браузера      | пароль        |
-      | 'google-chrome'   | 'Test$190720' |
-      | 'mozilla-firefox' | 'Test$190720' |
+      | 'google-chrome'   | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'qawsderfgt1' |
 
   Структура сценария: Провальный вход на веб-сайт. Не заполнено второе поле пароль
     Дано Открыт браузер <имя_браузера>
@@ -86,8 +86,8 @@
 
     Примеры:
       | имя_браузера      | логин           |
-      | 'google-chrome'   | 'Test190720_g1' |
-      | 'mozilla-firefox' | 'Test190720_f1' |
+      | 'google-chrome'   | 'test546300' |
+      | 'mozilla-firefox' | 'test546500' |
 
   Структура сценария: Пользователь пытается восстановить пароль
     Дано Открыт браузер <имя_браузера>
