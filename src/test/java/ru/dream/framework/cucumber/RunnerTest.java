@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
         glue = "ru.dream.framework",
         features = "src/test/resources/features",
-        tags = "@api"
+        tags = "@Search"
 )
 public class RunnerTest extends AbstractTestNGCucumberTests {
 }
