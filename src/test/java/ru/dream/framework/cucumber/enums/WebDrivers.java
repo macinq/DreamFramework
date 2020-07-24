@@ -23,6 +23,6 @@ public enum WebDrivers {
   }
 
   public String getName() {
-    return path;
+    return name;
   }
 }
