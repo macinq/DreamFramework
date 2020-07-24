@@ -1,11 +1,14 @@
 package ru.dream.framework.cucumber.steps;
 
-import io.cucumber.java.*;
+import io.cucumber.java.After;
+import io.cucumber.java.BeforeStep;
+import org.apache.log4j.Logger;
 
 import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 
 
 public class Hooks {
+  public static final Logger logger = Logger.getLogger("logger");
 
   @BeforeStep
   public void before() throws InterruptedException {
