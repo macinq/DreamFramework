@@ -50,6 +50,11 @@ public class EditProfileSteps {
    */
   @Дано("Выполнен вход в аккаунт")
   public void signIn(DataTable signIn) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     List<Map<String, String>> table = signIn.asMaps(String.class, String.class);
 
     String xPathSignIn = "//button[@class='btn navbar-btn btn-default btn-sign-in']";
@@ -77,6 +82,11 @@ public class EditProfileSteps {
    */
   @Когда("Пользователь жмет на кнопку ПРОФИЛЬ")
   public void pressButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//a/img[@class='user-avatar' and 1]";
     WebElement button = webDriver.findElement(By.xpath(xPath));
     button.click();
@@ -84,6 +94,11 @@ public class EditProfileSteps {
 
   @Тогда("Появляется окно ИНФОРМАЦИЯ")
   public void showMenu() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//ul[@class='dropdown-menu user-dropdown dropdown-menu-right']";
     boolean flag = false;
     String xPathButton = "//button[@class='btn btn-default btn-block']";
@@ -99,6 +114,11 @@ public class EditProfileSteps {
 
   @Когда("Пользователь жмет на кнопку ИЗМЕНИТЬ НАСТРОЙКИ")
   public void changeSettings() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//ul[@class='dropdown-menu user-dropdown dropdown-menu-right']/li[4]/a[1]";
     WebElement button = webDriver.findElement(By.xpath(xPath));
     button.click();
@@ -106,6 +126,11 @@ public class EditProfileSteps {
 
   @Тогда("Открывается страница НАСТРОЙКИ")
   public void openSettingsPage() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//div[@class='container']/h1[1]";
     boolean flag = false;
     String data = "Измените ваши настройки";
@@ -123,6 +148,11 @@ public class EditProfileSteps {
    */
   @Когда("Пользователь настраивает ОПЦИИ")
   public void changeOptions() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPathPrivate = "//button[@id='id_is_hiding_presence']";
     String xPathInvite = "//button[@id='id_limits_private_thread_invites_to']";
     String xPathInviteValue = "//div[@class='btn-group btn-select-group open']/ul[@class='dropdown-menu' and 1]/li[2]/button[@class='btn-link' and 1]";
@@ -145,6 +175,11 @@ public class EditProfileSteps {
 
   @И("Затем жмет на кнопку СОХРАНИТЬ ОПЦИИ")
   public void pressSaveOptionsButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//button[@class='btn btn-primary']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -153,6 +188,11 @@ public class EditProfileSteps {
 
   @Тогда("Всплывает попап ДАННЫЕ ОПЦИЙ ОБНОВЛЕНЫ")
   public void popUpSavedOptions() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
     boolean flag = false;
 
@@ -169,6 +209,11 @@ public class EditProfileSteps {
    */
   @Когда("Пользователь жмет на кнопку ИЗМЕНИТЬ ДЕТАЛИ")
   public void pressChangeButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//a[@class='list-group-item' and @href='/options/edit-details/']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -177,6 +222,11 @@ public class EditProfileSteps {
 
   @Тогда("Открывается страница ДЕТАЛИ")
   public void openEditingPage() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//div[@class='panel-heading']";
     boolean flag = false;
     String data = "Редактировать детали";
@@ -191,6 +241,11 @@ public class EditProfileSteps {
 
   @Когда("Пользователь заполняет страницу данными")
   public void dataFilling(DataTable fields) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     List<Map<String, String>> table = fields.asMaps(String.class, String.class);
 
     String xPathGenderButton = "//button[@id='id_gender']";
@@ -221,6 +276,11 @@ public class EditProfileSteps {
 
   @И("Затем жмет на кнопку СОХРАНИТЬ ДЕТАЛИ")
   public void pressSaveButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//button[@class='btn btn-primary']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -245,6 +305,11 @@ public class EditProfileSteps {
    */
   @Когда("Пользователь жмет на кнопку ИЗМЕНИТЬ ИМЯ")
   public void pressChangeNameButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//a[@class='list-group-item' and @href='/options/change-username/']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -253,6 +318,11 @@ public class EditProfileSteps {
 
   @Тогда("Открывается страница ИМЯ")
   public void openEditingNamePage() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//div[@class='panel-heading']";
     boolean flag = false;
     String data = "Изменить имя";
@@ -267,6 +337,11 @@ public class EditProfileSteps {
 
   @Когда("Пользователь заполняет поле НОВОЕ ИМЯ")
   public void changeName(DataTable names) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     List<Map<String, String>> table = names.asMaps(String.class, String.class);
     String xPath = "//input[@id='id_username']";
 
@@ -282,6 +357,11 @@ public class EditProfileSteps {
 
   @И("Затем жмет на кнопку СОХРАНИТЬ ИМЯ")
   public void pressSaveNameButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//button[@class='btn btn-primary']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -290,6 +370,11 @@ public class EditProfileSteps {
 
   @Тогда("Всплывает попап ДАННЫЕ ИМЕНИ ОБНОВЛЕНЫ")
   public void popUpSavedName() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
     boolean flag = false;
 
@@ -306,6 +391,11 @@ public class EditProfileSteps {
    */
   @Когда("Пользователь жмет на кнопку ИЗМЕНИТЬ EMAIL ИЛИ ПАРОЛЬ")
   public void pressChangeEmailAndPasswordButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//a[@class='list-group-item' and @href='/options/sign-in-credentials/']";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -328,6 +418,11 @@ public class EditProfileSteps {
 
   @Когда("Пользователь заполняет раздел ИЗМЕНИТЬ EMAIL данными")
   public void changeEmail(DataTable emails) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     List<Map<String, String>> table = emails.asMaps(String.class, String.class);
     String xPathEmail = "//input[@id='id_new_email']";
     String xPathPassword = "//input[@id='id_confirm_email']";
@@ -341,6 +436,11 @@ public class EditProfileSteps {
 
   @И("Затем жмет на кнопку СОХРАНИТЬ EMAIL")
   public void pressSaveEmailButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//form[1]//button[contains(@type, 'submit')]";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -349,6 +449,11 @@ public class EditProfileSteps {
 
   @Тогда("Всплывает попап ДАННЫЕ EMAIL ОБНОВЛЕНЫ")
   public void popUpSavedEmail() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
     boolean flag = false;
 
@@ -362,6 +467,11 @@ public class EditProfileSteps {
 
   @Когда("Пользователь заполняет раздел ИЗМЕНИТЬ ПАРОЛЬ данными")
   public void changePassword(DataTable passwords) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     List<Map<String, String>> table = passwords.asMaps(String.class, String.class);
 
     String xPathNewPassword = "//input[@id='id_new_password']";
@@ -380,6 +490,11 @@ public class EditProfileSteps {
 
   @И("Затем жмет на кнопку СОХРАНИТЬ ПАРОЛЬ")
   public void pressSavePasswordButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
     String xPath = "//form[2]//button[contains(@type, 'submit')]";
 
     WebElement button = webDriver.findElement(By.xpath(xPath));
@@ -393,6 +508,203 @@ public class EditProfileSteps {
 
     if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
       System.out.println("Пароль обновлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @Тогда("Закрыть браузер")
+  public void closeBrowser() {
+    Hooks.finishingDrivers();
+  }
+
+  @Когда("Пользователь жмет на кнопку ИЗМЕНИТЬ АВАТАР")
+  public void pressEditAvatarButton() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//ul[@class='dropdown-menu user-dropdown dropdown-menu-right']/li/button[@class='btn-link']";
+    WebElement button = webDriver.findElement(By.xpath(xPath));
+    button.click();
+  }
+
+  @Тогда("Открывается страница АВАТАР")
+  public void openAvatarPage() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//h4";
+    boolean flag = false;
+    String data = "Изменить аватарку";
+    WebElement page = webDriver.findElement(By.xpath(xPath));
+
+    if (page.getText().contains(data)) {
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @Когда("Пользователь жмет на кнопку ЗАГРУЗИТЬ GRAVATAR")
+  public void loadGravatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//button[@class='btn btn-default btn-block btn-avatar-gravatar']";
+    WebElement button = webDriver.findElement(By.xpath(xPath));
+    button.click();
+  }
+
+  @Тогда("Всплывает попап НЕТ АССОЦИИРОВАННОГО GRAVATAR")
+  public void noAssociatedGravatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
+    boolean flag = false;
+
+    if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-danger")) {
+      System.out.println("Нет граватара: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-danger"));
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @Когда("Пользователь жмет на кнопку СГЕНЕРИРОВАТЬ АВАТАР")
+  public void generateAvatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//button[@class='btn btn-default btn-block btn-avatar-generate']";
+    WebElement button = webDriver.findElement(By.xpath(xPath));
+    button.click();
+  }
+
+  @Тогда("Всплывает попап АВАТАР СГЕНЕРИРОВАН")
+  public void avatarGenerated() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
+    boolean flag = false;
+
+    if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+      System.out.println("Аватар сгенерирован: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @Когда("Пользователь жмет на кнопку ЗАГРУЗИТЬ ИЗОБРАЖЕНИЕ")
+  public void uploadAvatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//button[@class='btn btn-default btn-block btn-avatar-upload']";
+    WebElement button = webDriver.findElement(By.xpath(xPath));
+    button.click();
+  }
+
+  @Тогда("Открывается страница ВЫБРАТЬ ФАЙЛ")
+  public void uploadAvatarPage() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//h4";
+    boolean flag = false;
+    String data = "Изменить аватарку";
+    WebElement page = webDriver.findElement(By.xpath(xPath));
+
+    if (page.getText().contains(data)) {
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @Когда("Пользователь выбирает файл")
+  public void selectAvatarFile(DataTable images) {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    List<Map<String, String>> table = images.asMaps(String.class, String.class);
+
+    String xPathInput = "//*[@id='avatar-hidden-upload]";
+    String image;
+
+    if (nameBrowser.equalsIgnoreCase(WebDrivers.CHROME.name)) {
+      image = table.get(0).get("Значение");
+    } else {
+      image = table.get(1).get("Значение");
+    }
+
+    webDriver.findElement(By.xpath(xPathInput)).sendKeys(image);
+  }
+
+  @Тогда("Открывается страница ОБРЕЗАТЬ ИЗОБРАЖЕНИЕ")
+  public void cropAvatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//h4";
+    boolean flag = false;
+    String data = "Изменить аватарку";
+    WebElement page = webDriver.findElement(By.xpath(xPath));
+
+    if (page.getText().contains(data)) {
+      flag = true;
+    }
+
+    Assert.assertTrue(flag, "Страница не открылась");
+  }
+
+  @И("Затем пользователь жмет на кнопку УСТАНОВИТЬ АВАТАР")
+  public void pressSetAvatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPath = "//button[@class='btn btn-primary btn-block']";
+    WebElement button = webDriver.findElement(By.xpath(xPath));
+    button.click();
+  }
+
+  @Тогда("Всплывает попап АВАТАР УСТАНОВЛЕН")
+  public void popUpSetAvatar() {
+    try {
+      Hooks.sleep();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+    String xPathSuccess = "//*[@id='snackbar-mount']//p[contains(@class, 'alert')]";
+    boolean flag = false;
+
+    if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+      System.out.println("Аватар установлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
       flag = true;
     }
 
