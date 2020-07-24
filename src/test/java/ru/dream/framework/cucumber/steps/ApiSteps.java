@@ -21,7 +21,7 @@ import static io.restassured.RestAssured.given;
  */
 public class ApiSteps {
     private static final String URL;
-    public static final Logger logger = Logger.getLogger("logger");
+    public static final Logger logger = Logger.getLogger(ApiSteps.class);
 
     private Response response;
 
@@ -29,7 +29,7 @@ public class ApiSteps {
         try {
             System.getProperties().load(ClassLoader.getSystemResourceAsStream("settings.properties"));
         } catch (IOException e) {
-            logger.error("Не удалось найти файл с проперти");
+            logger.warn("Не удалось найти файл .properties");
         }
         URL = System.getProperty("client.url") + System.getProperty("api.prefix");
         
@@ -72,7 +72,7 @@ public class ApiSteps {
                     .when()
                     .get(endpoint);
                     break;
-            default: logger.error(String.format("Тест для метода %s не найден", method));
+            default: logger.warn(String.format("Тест для метода %s не найден", method));
         }
 
     }

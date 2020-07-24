@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class EditProfileSteps {
-  public static final Logger logger = Logger.getLogger("logger");
+  public static final Logger logger = Logger.getLogger(EditProfileSteps.class);
 
   static WebDriver driverChrome;
   static WebDriver driverFirefox;

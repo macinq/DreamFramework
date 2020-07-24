@@ -1,6 +1,5 @@
 package ru.dream.framework.cucumber.steps;
 
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Steps {
-    public static final Logger logger = Logger.getLogger("logger");
+    public static final Logger logger = Logger.getLogger(Steps.class);
 
     WebDriver driverChrome;
     WebDriver driverFirefox;
@@ -64,11 +63,5 @@ public class Steps {
         driverChrome.findElement(By.xpath(xpathLoginButton));
         driverFirefox.findElement(By.xpath(xpathLoginButton));
         System.out.println("Кнопка входа присутствует");
-    }
-
-    @After
-    public void clearDrivers() {
-        driverChrome.quit();
-        driverFirefox.quit();
     }
 }
