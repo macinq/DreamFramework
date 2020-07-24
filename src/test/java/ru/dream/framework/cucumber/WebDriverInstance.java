@@ -32,25 +32,25 @@ public class WebDriverInstance {
     }
 
     private void initForWindowsOS(String browser) {
-        if (browser.equalsIgnoreCase("google-chrome")) {
+        if (browser.equalsIgnoreCase(WebDrivers.CHROME.getName())) {
             System.setProperty(WebDrivers.CHROME.type, WebDrivers.CHROME.path);
             initChromeDriver();
 
-        } else if (browser.equalsIgnoreCase("mozilla-firefox")) {
+        } else if (browser.equalsIgnoreCase(WebDrivers.FIREFOX.getName())) {
             System.setProperty(WebDrivers.FIREFOX.type, WebDrivers.FIREFOX.path);
             initFirefoxDriver();
 
         } else {
-            throw new IllegalArgumentException("Unsupported webdriver: " + webDriver);
+            throw new IllegalArgumentException("Unsupported webdriver: " + browser);
         }
 
      }
 
     private void initForLinuxOS(String browser) {
-        if (browser.equalsIgnoreCase("google-chrome")) {
+        if (browser.equalsIgnoreCase(WebDrivers.CHROME.getName())) {
             initChromeDriver();
 
-        } else if (browser.equalsIgnoreCase("mozilla-firefox")) {
+        } else if (browser.equalsIgnoreCase(WebDrivers.FIREFOX.getName())) {
            initFirefoxDriver();
 
         } else {
