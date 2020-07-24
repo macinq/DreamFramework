@@ -16,6 +16,7 @@ import static io.restassured.RestAssured.given;
 
 /**
  * Шаги для тестов API.
+ * @author Alexaner Karpyuk
  */
 public class ApiSteps {
     private static final String URL;
