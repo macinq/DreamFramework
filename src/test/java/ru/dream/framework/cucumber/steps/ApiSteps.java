@@ -5,8 +5,6 @@ import io.cucumber.java.ru.Дано;
 import io.cucumber.java.ru.Затем;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.filter.log.LogDetail;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.apache.log4j.Logger;
@@ -27,7 +25,9 @@ public class ApiSteps {
 
     static {
         try {
-            System.getProperties().load(ClassLoader.getSystemResourceAsStream("settings.properties"));
+            String file = "settings.properties";
+            logger.info("Загрузка конфигурационного файла: " + file);
+            System.getProperties().load(ClassLoader.getSystemResourceAsStream(file));
         } catch (IOException e) {
             logger.warn("Не удалось найти файл .properties");
         }
@@ -37,10 +37,7 @@ public class ApiSteps {
                 .setBaseUri(URL)
                 .setAccept(ContentType.JSON)
                 .setContentType(ContentType.JSON)
-                .log(LogDetail.ALL)
                 .build();
-
-        RestAssured.filters(new ResponseLoggingFilter());
     }
 
     /**
@@ -50,7 +47,7 @@ public class ApiSteps {
      */
     @Дано("отправка запроса по эндпоиту {string} с использованием метода {string}")
     public void request(String endpoint, String method) {
-        logger.info(String.format("Выполнение метода %s по эндпоинту %s", method, endpoint));
+        logger.info(String.format("request() : отправка запроса по эндпоиту %s с использованием метода %s", endpoint, method));
         switch (method) {
             case "POST" : response = given()
                     .when()
@@ -72,7 +69,7 @@ public class ApiSteps {
                     .when()
                     .get(endpoint);
                     break;
-            default: logger.warn(String.format("Тест для метода %s не найден", method));
+            default: logger.warn(String.format("request() : тест для метода %s не найден", method));
         }
 
     }
@@ -84,6 +81,7 @@ public class ApiSteps {
      */
     @Затем("ожидаем статус код {int} и сообщение {string}")
     public void checkResponse(int code, String message) {
+        logger.info(String.format("checkResponse() : ожидаем статус код '%d' и сообщение '%s'", code, message));
         if(message.equals("null")) {
             response.then()
                     .statusCode(code);
@@ -94,7 +92,12 @@ public class ApiSteps {
                     .extract()
                     .jsonPath()
                     .getString("detail");
-            System.out.println(result);
+            boolean b = false;
+            if (result.equals(message)) {
+                logger.info(String.format("checkResponse() : результат '%s' ожидание '%s' равны", result, message));
+            } else {
+                logger.warn(String.format("checkResponse() : результат '%s' ожидание '%s' неравны", result, message));
+            }
             Assert.assertEquals(result, message);
         }
     }
