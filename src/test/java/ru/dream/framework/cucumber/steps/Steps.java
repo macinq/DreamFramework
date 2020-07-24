@@ -1,18 +1,15 @@
 package ru.dream.framework.cucumber.steps;
 
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.ru.Дано;
+import io.cucumber.java.ru.Затем;
+import io.cucumber.java.ru.Когда;
+import io.cucumber.java.ru.Тогда;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.dream.framework.cucumber.Screenshot;
-
-import java.io.IOException;
+import ru.dream.framework.cucumber.WebDriverInstance;
+import ru.dream.framework.cucumber.enums.WebDrivers;
 
 
 public class Steps {
@@ -23,30 +20,27 @@ public class Steps {
     Screenshot screenshot;
 
 
-    @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
-    public void initChrome(String pathDriver){
+    @Дано("^инициализировать драйвер для браузера Chrome$")
+    public void initChrome() {
         logger.info("Инициализация драйвера Chrome");
-        System.setProperty("webdriver.chrome.driver", pathDriver);
-        driverChrome = new ChromeDriver();
+
+        driverChrome = new WebDriverInstance(WebDrivers.CHROME.getName()).getWebDriver();
         System.out.println("Двайвер Chrome установлен");
         logger.info("Инициализация драйвера Chrome прошла успешно");
     }
 
-    @Given("^указать путь драйвера для браузера FireFox '(.*)'$")
-    public void initFirefox(String pathDriver){
+    @Дано("^инициализировать драйвер для браузера FireFox$")
+    public void initFirefox() {
         logger.info("Инициализация драйвера");
-        System.setProperty("webdriver.gecko.driver",pathDriver);
-        driverFirefox= new FirefoxDriver();
+
+        driverFirefox = new WebDriverInstance(WebDrivers.FIREFOX.getName()).getWebDriver();
         System.out.println("Двайвер FireFox установлен");
         logger.info("Инициализация драйвера FireFox прошла успешно");
     }
 
-    @When("^открыть страницу '(.*)'$")
-    public void openPage(String url) throws IOException {
+    @Когда("^открыть страницу '(.*)'$")
+    public void openPage(String url) {
         logger.info(String.format("Открытие страницы по url: %s", url));
-        driverChrome.manage().window().setSize(new Dimension(900,1000));
-        driverFirefox.manage().window().setPosition(new Point(901,10));
-        driverFirefox.manage().window().setSize(new Dimension(900,1000));
         driverChrome.get(url);
         driverFirefox.get(url);
         screenshot = new Screenshot(driverChrome);
@@ -56,8 +50,8 @@ public class Steps {
     }
 
 
-    @Then("^найти навигационный бар '(.*)'$")
-    public void checkNavBar(String xpathNavBar){
+    @Тогда("^найти навигационный бар '(.*)'$")
+    public void checkNavBar(String xpathNavBar) {
         logger.info("Поиск навигационного бара");
         driverChrome.findElement(By.xpath(xpathNavBar));
         driverFirefox.findElement(By.xpath(xpathNavBar));
@@ -65,8 +59,8 @@ public class Steps {
         logger.info("Навигационный бар найден");
     }
 
-    @Then("^найти кнопку регистрации '(.*)'$")
-    public void checkRegistrationButton(String xpathRegButton){
+    @Тогда("^найти кнопку регистрации '(.*)'$")
+    public void checkRegistrationButton(String xpathRegButton) {
         logger.info("Поиск кнопки регистрации");
         driverChrome.findElement(By.xpath(xpathRegButton));
         driverFirefox.findElement(By.xpath(xpathRegButton));
@@ -74,12 +68,24 @@ public class Steps {
         logger.info("Кнопка регистрации найдена");
     }
 
-    @Then("^найти кнопку входа '(.*)'$")
-    public void checkLoginButton(String xpathLoginButton){
+    @Тогда("^найти кнопку входа '(.*)'$")
+    public void checkLoginButton(String xpathLoginButton) {
         logger.info("Поиск кнопки входа");
         driverChrome.findElement(By.xpath(xpathLoginButton));
         driverFirefox.findElement(By.xpath(xpathLoginButton));
         System.out.println("Кнопка входа присутствует");
         logger.info("Кнопка входа найдена");
+    }
+
+    @Затем("закрыть драйвера")
+    public void quitDrivers() {
+        if (driverChrome != null) {
+            driverChrome.quit();
+            logger.info("Драйвер Chrome закрыт");
+        }
+        if (driverFirefox != null) {
+            driverFirefox.quit();
+            logger.info("Драйвер Firefox закрыт");
+        }
     }
 }
