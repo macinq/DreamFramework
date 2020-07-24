@@ -1,30 +1,28 @@
 package ru.dream.framework.cucumber.steps;
 
-import io.cucumber.java.After;
-import io.cucumber.java.BeforeStep;
+import io.cucumber.java.*;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterGroups;
+
 
 import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 
 
 public class Hooks {
-  public static final Logger logger = Logger.getLogger("logger");
+  private static final Logger logger = Logger.getLogger(Hooks.class);
 
-  @BeforeStep
-  public void before() throws InterruptedException {
+  public void sleep() throws InterruptedException {
     Thread.sleep(3000);
   }
 
-  @AfterGroups
-  public void clearDrivers() {
-    if (webDriver.equalsIgnoreCase("google-chrome")) {
-      driverChrome.quit();
-    } else if (webDriver.equalsIgnoreCase("mozilla-firefox")) {
-      driverFirefox.quit();
+  public void finishingDrivers() {
+    logger.info("Завершение сеанса WebDriver");
+    if (nameBrowser != null) {
+      webDriver.quit();
+      logger.info("Сеанс драйвера " + nameBrowser + " завершен");
     } else {
-      throw new IllegalArgumentException("Unsupported webdriver: " + webDriver);
+      logger.error("Web driver was not found");
     }
   }
 }
