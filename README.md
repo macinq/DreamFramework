@@ -20,3 +20,9 @@ EmailAuthorizationFailedPasswordSteps - Проверка на некоректн
 EmailАuthorizationSuccessSteps - Проверка на авторизацию через почту(Вход выполнен)
 
 LoginАuthorizationSuccessSteps - Проверка на авторизацию через логин(Вход выполнен)
+
+EmpyLoginFailedSteps - поле Логина пустое
+
+EmpyPasswordAuthorizationFalledSteps - поле Пароля пустое
+
+RecoverPasswordAuthorization - Поле восстановления пароля
