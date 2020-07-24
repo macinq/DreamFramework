@@ -14,8 +14,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя | почта                   | пароль        |
-      | 'google-chrome'   | 'Test190720_g1'  | 'test190720_g1@test.ru' | 'Test$190720' |
-      | 'mozilla-firefox' | 'Test190720_f1'  | 'test190720_f1@test.ru' | 'Test$190720' |
+      | 'google-chrome'   | 'test546300'  | 'test1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'test546500'  | 'test2@test.ru' | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- данное имя пользователя недоступно.
     Дано Открыт браузер <имя_браузера>
@@ -27,8 +27,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя | почта                    | пароль        |
-      | 'google-chrome'   | 'Test190720_g1'  | 'other190720_g1@test.ru' | 'Test$190720' |
-      | 'mozilla-firefox' | 'Test190720_f1'  | 'other190720_f1@test.ru' | 'Test$190720' |
+      | 'google-chrome'   | 'test546300'  | 'other1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'test546500'  | 'other2@test.ru' | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- данный e-mail адрес недоступен.
     Дано Открыт браузер <имя_браузера>
@@ -40,8 +40,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя     | почта                    | пароль        |
-      | 'google-chrome'   | 'TestOther190720_g1' | 'other190720_g1@test.ru' | 'Test$190720' |
-      | 'mozilla-firefox' | 'TestOther190720_f1' | 'other190720_f1@test.ru' | 'Test$190720' |
+      | 'google-chrome'   | 'TestOther1' | 'other1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'TestOther2' | 'other2@test.ru' | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- пароль должен состоять как минимум из 7 символов.
     Дано Открыт браузер <имя_браузера>
@@ -52,8 +52,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя     | почта                    | пароль   |
-      | 'google-chrome'   | 'TestOther190720_g1' | 'other190720_g1@test.ru' | 'Test$1' |
-      | 'mozilla-firefox' | 'TestOther190720_f1' | 'other90720_f1@test.ru'  | 'Test$1' |
+      | 'google-chrome'   | 'TestOther1' | 'other1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'TestOther2' | 'other2@test.ru'  | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- Имя пользователя - обязательное поле.
     Дано Открыт браузер <имя_браузера>
@@ -65,8 +65,8 @@
 
     Примеры:
       | имя_браузера      | почта                    | пароль        |
-      | 'google-chrome'   | 'other190720_g1@test.ru' | 'Test$190720' |
-      | 'mozilla-firefox' | 'other190720_f1@test.ru' | 'Test$190720' |
+      | 'google-chrome'   | 'other1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'other2@test.ru' | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- Электронная почта - обязательное поле. Google Chrome.
     Дано Открыт браузер <имя_браузера>
@@ -78,8 +78,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя     | пароль   |
-      | 'google-chrome'   | 'TestOther190720_g1' | 'Test$1' |
-      | 'mozilla-firefox' | 'TestOther190720_f1' | 'Test$1' |
+      | 'google-chrome'   | 'TestOther1' | 'abcd$8' |
+      | 'mozilla-firefox' | 'TestOther2' | 'abdc$7' |
 
 
   Структура сценария: Неудалось зарегистрироваться -- Пароль - обязательное поле.
@@ -92,5 +92,5 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя     | почта                    |
-      | 'google-chrome'   | 'TestOther190720_g1' | 'other190720_g1@test.ru' |
-      | 'mozilla-firefox' | 'TestOther190720_f1' | 'other90720_f1@test.ru'  |
+      | 'google-chrome'   | 'TestOther1' | 'other1@test.ru' |
+      | 'mozilla-firefox' | 'TestOther2' | 'other2s@test.ru'  |
