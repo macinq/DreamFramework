@@ -8,7 +8,7 @@ import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 
 
 public class Hooks {
-  public static final Logger logger = Logger.getLogger("logger");
+  private static final Logger logger = Logger.getLogger("logger");
 
   @BeforeStep
   public void before() throws InterruptedException {

@@ -2,6 +2,7 @@ package ru.dream.framework.cucumber.steps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.ru.*;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class EditProfileSteps {
+  public static final Logger logger = Logger.getLogger("logger");
 
   static WebDriver driverChrome;
   static WebDriver driverFirefox;
