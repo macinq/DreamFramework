@@ -14,8 +14,8 @@
 
     Примеры:
       | имя_браузера      | имя_пользователя | почта                   | пароль        |
-      | 'google-chrome'   | 'test546300'  | 'test@test.ru' | 'qawsderfgt1' |
-      | 'mozilla-firefox' | 'test546500'  | 'test@test.ru' | 'qawsderfgt1' |
+      | 'google-chrome'   | 'test546300'  | 'test1@test.ru' | 'qawsderfgt1' |
+      | 'mozilla-firefox' | 'test546500'  | 'test2@test.ru' | 'qawsderfgt1' |
 
   Структура сценария: Неудалось зарегистрироваться -- данное имя пользователя недоступно.
     Дано Открыт браузер <имя_браузера>
