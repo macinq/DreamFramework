@@ -10,12 +10,17 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import ru.dream.framework.cucumber.Screenshot;
+
+import java.io.IOException;
+
 
 public class Steps {
 
 
     WebDriver driverChrome;
     WebDriver driverFirefox;
+    Screenshot screenshot;
 
 
     @Given("^указать путь драйвера для браузера Chrome '(.*)'$")
@@ -35,14 +40,17 @@ public class Steps {
     }
 
     @When("^открыть страницу '(.*)'$")
-    public void openPage(String url){
+    public void openPage(String url) throws IOException {
         driverChrome.manage().window().setSize(new Dimension(900,1000));
         driverFirefox.manage().window().setPosition(new Point(901,10));
         driverFirefox.manage().window().setSize(new Dimension(900,1000));
         driverChrome.get(url);
         driverFirefox.get(url);
+        screenshot = new Screenshot(driverChrome);
         System.out.println("Страница: "+url+" успешно открыта");
+        screenshot.makeScreenshotToAllure("HomePage");
     }
+
 
     @Then("^найти навигационный бар '(.*)'$")
     public void checkNavBar(String xpathNavBar){

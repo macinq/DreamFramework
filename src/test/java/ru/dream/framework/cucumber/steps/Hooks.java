@@ -3,6 +3,8 @@ package ru.dream.framework.cucumber.steps;
 import io.cucumber.java.After;
 import io.cucumber.java.BeforeStep;
 import org.apache.log4j.Logger;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterGroups;
 
 import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 
@@ -15,7 +17,7 @@ public class Hooks {
     Thread.sleep(3000);
   }
 
-  @After
+  @AfterGroups
   public void clearDrivers() {
     if (webDriver.equalsIgnoreCase("google-chrome")) {
       driverChrome.quit();
