@@ -1,6 +1,6 @@
 package ru.dream.framework.cucumber.steps;
 
-import io.cucumber.java.BeforeStep;
+import io.cucumber.java.*;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.testng.annotations.AfterGroups;
@@ -24,7 +24,7 @@ public class Hooks {
     logger.info("Завершение сеанса WebDriver");
     if (nameBrowser != null) {
       webDriver.quit();
-      logger.info("Сеанс драйвера " + nameBrowser " завершен");
+      logger.info("Сеанс драйвера " + nameBrowser + " завершен");
     } else {
       throw new NullPointerException("Web driver was not found");
     }
