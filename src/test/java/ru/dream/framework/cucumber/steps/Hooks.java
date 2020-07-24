@@ -12,21 +12,17 @@ import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 public class Hooks {
   private static final Logger logger = Logger.getLogger(Hooks.class);
 
-
-  @BeforeStep
-  public void beforeStep() throws InterruptedException {
+  public void sleep() throws InterruptedException {
     Thread.sleep(3000);
   }
 
-
-  @After
   public void finishingDrivers() {
     logger.info("Завершение сеанса WebDriver");
     if (nameBrowser != null) {
       webDriver.quit();
       logger.info("Сеанс драйвера " + nameBrowser + " завершен");
     } else {
-      throw new NullPointerException("Web driver was not found");
+      logger.error("Web driver was not found");
     }
   }
 }
