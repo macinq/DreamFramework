@@ -1,13 +1,13 @@
 package ru.dream.framework.cucumber;
 
-import com.sun.deploy.cache.Cache;
-import com.sun.xml.messaging.saaj.util.ByteInputStream;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -31,7 +31,7 @@ public class Screenshot {
 
     private void getScreenshot(String name) throws IOException {
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        Cache.copyFile(scrFile, new File("target\\"+name+".png"));
+        FileUtils.copyFile(scrFile, new File("target\\" + name + ".png"));
     }
 
 
@@ -43,14 +43,14 @@ public class Screenshot {
             e.printStackTrace();
         }
         File root = new File(".");
-        Path path = root.toPath().resolve(Paths.get("target\\"+name+".png"));
+        Path path = root.toPath().resolve(Paths.get("target\\" + name + ".png"));
         return Files.readAllBytes(path);
 
     }
 
-    public void makeScreenshotToAllure(String screenshotName)  {
+    public void makeScreenshotToAllure(String screenshotName) {
         try {
-            Allure.addAttachment(screenshotName,"image/png",new ByteInputStream(getBytes(screenshotName),getBytes(screenshotName).length),".png");
+            Allure.addAttachment(screenshotName, "image/png", new ByteArrayInputStream(getBytes(screenshotName)), ".png");
         } catch (IOException e) {
             e.printStackTrace();
         }
