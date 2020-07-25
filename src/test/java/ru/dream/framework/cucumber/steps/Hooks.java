@@ -13,6 +13,7 @@ public class Hooks {
   private static final Logger logger = Logger.getLogger(Hooks.class);
 
   public static void sleep() throws InterruptedException {
+    logger.info("Ожидание 3 секунды");
     Thread.sleep(3000);
   }
 
