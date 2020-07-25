@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import ru.dream.framework.cucumber.Screenshot;
 import ru.dream.framework.cucumber.WebDriverInstance;
 import ru.dream.framework.cucumber.enums.WebDrivers;
 
@@ -21,6 +22,7 @@ public class EditProfileSteps {
 
   static WebDriver webDriver;
   static String nameBrowser;
+  Screenshot screenshot;
 
   /**
    * ЗАПУСК БРАУЗЕРА
@@ -50,6 +52,8 @@ public class EditProfileSteps {
     try {
       logger.info(String.format("Открытие страницы %s", url));
       webDriver.get(url);
+      screenshot = new Screenshot(webDriver);
+      screenshot.makeScreenshotToAllure("Home_" + nameBrowser);
       logger.info(String.format("Страница %s открыта", url));
     } catch (WebDriverException e) {
       e.printStackTrace();
@@ -92,6 +96,8 @@ public class EditProfileSteps {
       webDriver.findElement(By.xpath(xPathPassword)).clear();
       webDriver.findElement(By.xpath(xPathPassword)).sendKeys(table.get(2).get("Значение"));
       webDriver.findElement(By.xpath(xPathSignInButton)).click();
+      screenshot = new Screenshot(webDriver);
+      screenshot.makeScreenshotToAllure("SignIn_" + nameBrowser);
       logger.info("Вход в аккаунт выполнен");
     } catch (WebDriverException e) {
       e.printStackTrace();
@@ -186,6 +192,8 @@ public class EditProfileSteps {
       WebElement page = webDriver.findElement(By.xpath(xPath));
 
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SettingsPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -269,6 +277,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedOptions_" + nameBrowser);
         logger.info("Опции обновлены: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
@@ -319,6 +329,8 @@ public class EditProfileSteps {
 
       WebElement page = webDriver.findElement(By.xpath(xPath));
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("EditingPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -408,6 +420,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-info")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedEditingPage_" + nameBrowser);
         logger.info("Детали обновлены: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-info"));
         flag = true;
       }
@@ -459,6 +473,8 @@ public class EditProfileSteps {
 
       WebElement page = webDriver.findElement(By.xpath(xPath));
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("EditingNamePage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -533,6 +549,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedEditingNamePage_" + nameBrowser);
         logger.info("Логин обновлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
@@ -584,6 +602,8 @@ public class EditProfileSteps {
 
       WebElement page = webDriver.findElement(By.xpath(xPath));
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("EditingEmailAndPassPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -656,6 +676,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedEditingEmailPage_" + nameBrowser);
         logger.info("Email обновлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
@@ -733,6 +755,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedEditingPassPage_" + nameBrowser);
         logger.info("Пароль обновлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
@@ -786,6 +810,8 @@ public class EditProfileSteps {
       WebElement page = webDriver.findElement(By.xpath(xPath));
 
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("AvatarPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -831,6 +857,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-danger")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedGravatar_" + nameBrowser);
         logger.info("Нет граватара: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-danger"));
         flag = true;
       }
@@ -876,6 +904,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedGeneratedAvatar_" + nameBrowser);
         logger.info("Аватар сгенерирован: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
@@ -923,6 +953,8 @@ public class EditProfileSteps {
       WebElement page = webDriver.findElement(By.xpath(xPath));
 
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("UploadAvatarPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -984,6 +1016,8 @@ public class EditProfileSteps {
       new Actions(webDriver).moveToElement(back);
 
       if (page.getText().contains(data)) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("CropAvatarPage_" + nameBrowser);
         logger.info("Страница открылась");
         flag = true;
       }
@@ -1029,6 +1063,8 @@ public class EditProfileSteps {
       boolean flag = false;
 
       if (webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success")) {
+        screenshot = new Screenshot(webDriver);
+        screenshot.makeScreenshotToAllure("SavedUploadedAvatarPage_" + nameBrowser);
         logger.info("Аватар установлен: " + webDriver.findElement(By.xpath(xPathSuccess)).getAttribute("class").contains("alert-success"));
         flag = true;
       }
