@@ -8,7 +8,9 @@ import org.testng.annotations.AfterGroups;
 
 import static ru.dream.framework.cucumber.steps.EditProfileSteps.*;
 
-
+/**
+ * @author Sergey Igoshin
+ */
 public class Hooks {
   private static final Logger logger = Logger.getLogger(Hooks.class);
 
